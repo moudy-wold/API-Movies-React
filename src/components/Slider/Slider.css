@@ -1,0 +1,16 @@
+.carousel-inner{
+    height:100vh;
+    background-size:cover;
+}
+.carousel-inner img{
+    background-size:cover;
+    height:100vh;
+    object-fit:fill;
+}
+.carousel.slide a{
+    width:45px;
+    height:45px;
+    margin: 0 50px;
+    top:50%;
+    transform:translateY(-50%);
+}

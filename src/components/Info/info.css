@@ -1,0 +1,25 @@
+i{
+    color:#fff;
+}
+.nextui-c-grJsex-ikUaMfZ-css{
+    width:1100px !important;
+    margin:10px auto;
+}
+.nextui-c-cgxxHA{
+   max-width:85%;
+   margin:auto;
+}
+.info-container{
+    display:flex;
+    justify-content:space-between;
+    border-radius:10px;
+    padding-top:40px;
+} 
+.info-container .nextui-c-iVzbCs {
+    width:80%;
+    margin:5px 0  5px 15px;
+}
+.info-container img{
+    width: 100%;
+    border-radius:10px;
+}
