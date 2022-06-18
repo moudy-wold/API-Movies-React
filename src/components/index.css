@@ -1,3 +1,8 @@
+.main{
+    width: 98.8vw;
+    padding: 5px;
+}
+
 .films{
     width:99%;
     cursor:grab;
@@ -5,14 +10,35 @@
 .film{
     margin-top: 22px;
 }
+@media(max-width:567px){
+
+}
 .film .item{
-    min-width:18rem;
-    min-height:34rem;
+    min-width:18.2rem;
     border-radius:10px;
-    width:100vh;
     border:1px solid rgb(236, 226, 226);
     transition:.3s;
     margin-bottom:35px!important;
+}
+ @media (max-width:567px) {
+    .film .item{ 
+        min-width:15.71rem;
+    }
+}
+@media (min-width:567px) and (max-width:766px){
+    .film .item{
+        min-width:16.33rem;
+    }
+}
+@media (min-width:767px) and (max-width:991px){
+    .film .item{
+        min-width:17.01rem;
+    }
+}
+@media (min-width:992px) and (max-width:1115px){
+    .film .item{
+        min-width:17.4rem;
+    }
 }
 .film.search .item{
     width:23%;
@@ -56,4 +82,12 @@ a.active{
 a.active:hover,
 a:hover{
     color:#fff;
+}
+i{
+    margin:5px;
+}
+@media (max-width:567px){
+    .nextui-c-grJsex-iivoRvx-css{
+        max-width: 100% !important;
+    }
 }

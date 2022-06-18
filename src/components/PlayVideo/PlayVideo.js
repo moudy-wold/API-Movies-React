@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Modal, Button } from "@nextui-org/react";
-import { useState } from 'react';
-import "./playvideo.css";
+import '../index.css';
 
 export default function PlayVedio(props) {
     const [visible, setVisible] = React.useState(false);
@@ -14,17 +13,12 @@ export default function PlayVedio(props) {
     const [trailer, setTrailer] = useState([]);
 
     const getTrailer = async (props) => {
-        console.log(props)
-        console.log(props.MovieId)
         var url = "";
         if (props.type === "movie") {
             url = `https://api.themoviedb.org/3/movie/${props.MovieId}/videos?api_key=7917b1f1a6ceb6e64d447919f0a82eef&language=en-US`;
-            console.log("if");
         }
         else {
             url = `https://api.themoviedb.org/3/tv/${props.TVId}/videos?api_key=7917b1f1a6ceb6e64d447919f0a82eef&language=en-US`;
-            console.log("else-if");
-
         }
 
         const response = await fetch(url);

@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSelector } from "react-redux";
 import "../index.css";
-import "./TopRatedMovies.css";
 import { motion } from "framer-motion";
 import Info from "../Info/Info";
 import PlayVedio from '../PlayVideo/PlayVideo';
 
 export default function TopRated(props) {
     var counter = 0;
-    // To Save Data
+    // For Save Data Comes From API
     const [data, setData] = useState([]);
 
     // Get Data From API
@@ -22,9 +21,9 @@ export default function TopRated(props) {
         }
     }
     getData();
-
+    // For Chck Input Search Is Empty Or No
     const { searchInputValue } = useSelector(state => state.info);
-
+    // For Handle Search Proces
     var filteredData = data.filter(item => {
         if (searchInputValue == "") {
             return item
@@ -35,8 +34,8 @@ export default function TopRated(props) {
 
     var carousel = useRef();
     const [ratedMoviesOffset, setRatedMovies] = useState(false);
-
     var scroll = window;
+    // For Send ScroolTop To Navbar
     useEffect(() => {
         props.ratedMoviesOffSet(carousel.current.offsetTop);
         if (window.scrollY > carousel.current.offsetTop - 200 &&
@@ -49,7 +48,7 @@ export default function TopRated(props) {
     }, [scroll.scrollY])
 
     return (
-        <div className="top-rated" ref={carousel} >
+        <div className="top-rated main" ref={carousel} >
             <h1 className="m-4 mb-1"> Top Rated Movies</h1>
             {searchInputValue == "" ?
                 <motion.div className="films overflow-hidden" whileTap={{ cursor: "grabbing" }}>

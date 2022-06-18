@@ -7,7 +7,6 @@ import { handleSearch } from "../redux/reducerSlice";
 
 export default function Navbars(props) {
     const dispatch = useDispatch();
-    console.log(document.querySelectorAll('nav #navbarScroll a'))
     return (
         <div>
             <Navbar bg="dark" variant="dark" expand="lg" >
@@ -16,10 +15,10 @@ export default function Navbars(props) {
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav className="m-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll >
-                            <Nav.Link href="#" onClick={() => { window.scrollTo(0, props.popusoffsetNum) }} className={props.scroll.popus ? "active" : ""} >Popular Movies</Nav.Link>
-                            <Nav.Link href="#" onClick={() => { window.scrollTo(0, (props.ratedMoviesOffSetNum - 65)) }} className={props.scroll.ratedMovies ? "active" : ""} >Top Rated Movies</Nav.Link>
-                            <Nav.Link href="#" onClick={() => { window.scrollTo(0, (props.ratedShowOffsetNum - 55)) }} className={props.scroll.ratedShow ? "active" : ""} >Top Rated Show</Nav.Link>
-                            <Nav.Link href="#" onClick={() => { window.scrollTo(0, (props.tvShowOffsetNum - 65)) }} className={props.scroll.tvShow ? "active" : ""} >Popular Tv Shows</Nav.Link>
+                            <a href="#" onClick={(e) => { window.scrollTo(0, props.popusoffsetNum); e.preventDefault() }} className={props.scroll.popus ? "active" : ""} >Popular Movies</a>
+                            <a href="#" onClick={(e) => { window.scrollTo(0, (props.ratedMoviesOffSetNum - 65)); e.preventDefault() }} className={props.scroll.ratedMovies ? "active" : ""} >Top Rated Movies</a>
+                            <a href="#" onClick={(e) => { window.scrollTo(0, (props.ratedShowOffsetNum - 55)); e.preventDefault() }} className={props.scroll.ratedShow ? "active" : ""} >Top Rated Show</a>
+                            <a href="#" onClick={(e) => { window.scrollTo(0, (props.tvShowOffsetNum - 65)); e.preventDefault() }} className={props.scroll.tvShow ? "active" : ""} >Popular Tv Shows</a>
                         </Nav>
                         <Form className="d-flex">
                             <FormControl

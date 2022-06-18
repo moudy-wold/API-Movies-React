@@ -10,16 +10,30 @@ i{
    margin:auto;
 }
 .info-container{
-    display:flex;
-    justify-content:space-between;
     border-radius:10px;
     padding-top:40px;
 } 
-.info-container .nextui-c-iVzbCs {
-    width:80%;
-    margin:5px 0  5px 15px;
-}
+
 .info-container img{
     width: 100%;
     border-radius:10px;
+
+
+}
+@media(max-width:567px){
+    .nextui-c-grJsex-iiSYCgW-css {
+    max-width: 94%;
+}
+}
+
+.nextui-c-igVEsI-etNznv-autoMargin-true > :last-child { 
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    transform: translateX(-50%); 
+    height:50px;
+    width:fit-content;
+}
+.info-child{
+    margin-top:-15px;
 }

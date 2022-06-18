@@ -8,6 +8,7 @@ import PlayVedio from '../PlayVideo/PlayVideo';
 
 export default function TopRatedShow(props) {
     var counter = 0;
+    // For Save Cames Data From API
     const [data, setData] = useState([]);
     const getData = async () => {
         try {
@@ -20,9 +21,9 @@ export default function TopRatedShow(props) {
     };
 
     getData();
-
+    // For Check Search Input If Empty Or No
     const { searchInputValue } = useSelector(state => state.info);
-
+    // For Handle Search Proces
     var filteredData = data.filter(item => {
         if (searchInputValue == "") {
             return item
@@ -32,8 +33,8 @@ export default function TopRatedShow(props) {
     });
     var carousel = useRef();
     const [ratedShowOffset, setRatedShow] = useState(0);
-
     var scroll = window;
+    // For Send ScrollTop To Navbar
     useEffect(() => {
         props.ratedShowOffset(carousel.current.offsetTop);
         if (window.scrollY > carousel.current.offsetTop - 200 &&
@@ -46,7 +47,7 @@ export default function TopRatedShow(props) {
     }, [scroll.scrollY])
 
     return (
-        <div className="to-rated-show" ref={carousel} >
+        <div className="to-rated-show main" ref={carousel} >
             <h1 className='m-4 mb-1'>Top Rated Show</h1>
             {searchInputValue == "" ?
                 <motion.div className="films overflow-hidden" whileTap={{ cursor: "grabbing" }}>

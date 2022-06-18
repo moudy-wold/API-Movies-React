@@ -8,6 +8,7 @@ export const infoFun = createSlice({
         searchInputValue: "",
     },
     reducers: {
+        // For Handle Search Proces
         handleSearch: (state, action) => {
             action.payload.e != "" ? state.dataIsEmpty = false : state.dataIsEmpty = true;
             state.searchInputValue = action.payload.e;

@@ -5,10 +5,9 @@ import "./info.css";
 
 export default function PlayVedio(props) {
     const [visible, setVisible] = useState(false);
-    const handler = () => { setVisible(true); console.log(props.prop) };
+    const handler = () => setVisible(true);
     const closeHandler = () => {
         setVisible(false);
-        console.log("closed");
     };
     return (
         <div>
@@ -20,32 +19,27 @@ export default function PlayVedio(props) {
                 onClose={closeHandler}
                 width="60%"
             >
-                <Modal.Header css={{ position: "absolute", zIndex: "$1", top: 5, left: "50%", transform: "translateX(-50%)" }} >
+                <Modal.Header>
                     <Text b size={25}>
-                        {props.prop.name}
+                        {props.prop.name ? props.prop.name : props.prop.title}
                     </Text>
                 </Modal.Header>
                 <Modal.Body>
-                    <Row>
-                        <div className='info-container'>
-                            <Col >
-                                <div >
-                                    <Image
-                                        showSkeleton
-                                        src={props.prop.backdrop_path != null ? `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${props.prop.backdrop_path}` : "./images/slider-1.jpg"}
-                                    />
-                                </div>
-                            </Col>
-                            <Col>
-                                <div className='info-child ms-3'>
-                                    <p className="date  fs-4">{props.prop.first_air_date}</p>
-                                    <p className='tagline'> {props.prop.tagline}</p>
-                                    <h2 className="date mt-5 mb-4">Overview</h2>
-                                    <p>{props.prop.overview}</p>
-                                </div>
-                            </Col>
+                    <div className='row info-container d-flex justify-content-between '>
+                        <div className="col-xs-12 col-6" >
+                            <img className='w-100'
+                                src={props.prop.backdrop_path != null ? `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${props.prop.backdrop_path}` : "./images/slider-1.jpg"}
+                            />
                         </div>
-                    </Row>
+                        <div className='info-child col-xs-12 col-sm-6 '>
+                            <p className="date fs-4">{props.prop.first_air_date}</p>
+                            <p className='tagline'> {props.prop.tagline}</p>
+                            <h2 className="date mb-4">Overview</h2>
+                            <p>{props.prop.overview}</p>
+                        </div>
+
+                    </div>
+
                 </Modal.Body>
                 <Modal.Footer>
                     <Button auto flat color="error" onClick={closeHandler}>
@@ -53,7 +47,7 @@ export default function PlayVedio(props) {
                     </Button>
                 </Modal.Footer>
             </Modal>
-        </div>
+        </div >
     );
 }
 

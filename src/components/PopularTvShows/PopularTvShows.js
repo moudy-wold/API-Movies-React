@@ -6,8 +6,8 @@ import Info from "../Info/Info";
 import PlayVedio from '../PlayVideo/PlayVideo';
 
 export default function PopularTvShows(props) {
-
     var counter = 0;
+    // For Save Data Camen From API
     const [data, setData] = useState([]);
     const getData = async () => {
         try {
@@ -18,14 +18,12 @@ export default function PopularTvShows(props) {
             console.log(err);
         }
     }
-    const [element, setElement] = useState("");
-    const openModal = (film) => {
-        setElement(film)
-    }
+
     getData();
 
-
+    // For Check Input Search Is Empty Or No
     const { searchInputValue } = useSelector(state => state.info);
+    // For Handle Search Proces
     var filteredData = data.filter(item => {
         if (searchInputValue == "") {
             return item
@@ -34,9 +32,10 @@ export default function PopularTvShows(props) {
         }
     });
     var carousel = useRef();
-    const [tvShowOffset, setTvShow] = useState(0);
 
+    const [tvShowOffset, setTvShow] = useState(0);
     var scroll = window;
+    // For Send ScroolTop Top NAvbar
     useEffect(() => {
         props.tvShowOffset(carousel.current.offsetTop);
         if (window.scrollY > carousel.current.offsetTop - 200 &&
@@ -49,16 +48,14 @@ export default function PopularTvShows(props) {
     }, [scroll.scrollY])
 
     return (
-        <div className='tv-show' ref={carousel}>
+        <div className='tv-show main' ref={carousel}>
             <h1 className='m-4 mb-1'>Popular Tv Shows</h1>
             {searchInputValue == "" ?
                 <motion.div className="films overflow-hidden" whileTap={{ cursor: "grabbing" }}>
                     <motion.div className="film search d-flex w-100vw" drag="x" dragConstraints={{ right: 0, left: -4810 }}>
                         {filteredData.map(item => (
                             <motion.div className='item m-2 text-center' key={item.id}>
-                                <a href="#" onClick={() => openModal(item)}>
-                                    <img className="w-100" src={item.backdrop_path != null ? `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${item.backdrop_path}` : "./images/slider-1.jpg"} />
-                                </a>
+                                <img className="w-100" src={item.backdrop_path != null ? `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${item.backdrop_path}` : "./images/slider-1.jpg"} />
                                 <h3 className='m-2'>{item.name}</h3>
                                 <p className='date'>Release Date: {item.release_date}</p>
                                 <p> Rating: {item.vote_average}</p>
